@@ -234,7 +234,7 @@ public class Server {
 		try {
 			clients = new ArrayList<ClientThread>();
 			serverSocket = new ServerSocket(port);
-			serverThread = new ServerThread(serverSocket, max);
+			serverThread = new ServerThread(serverSocket, max,contentArea);
 			serverThread.start();
 			isStart = true;
 		} catch (BindException e) {

@@ -222,7 +222,7 @@ public class Client {
 			// 发送客户端用户基本信息(用户名和ip地址)
 			sendMessage(name + "@" + socket.getLocalAddress().toString());
 			// 开启接收消息的线程
-			messageThread = new MessageThread(reader, textArea, socket, isConnected, onLineUsers);
+			messageThread = new MessageThread(reader, textArea, socket, isConnected, onLineUsers,frame);
 			messageThread.start();
 			isConnected = true;// 已经连接上了
 			return true;

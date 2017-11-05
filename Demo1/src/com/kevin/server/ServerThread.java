@@ -1,5 +1,6 @@
 package com.kevin.server;
 
+import java.awt.Frame;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
@@ -10,6 +11,7 @@ import java.util.ArrayList;
 import java.util.StringTokenizer;
 
 import javax.swing.DefaultListModel;
+import javax.swing.JTextArea;
 
 import com.kevin.entity.User;
 
@@ -20,12 +22,13 @@ public class ServerThread extends Thread {
 	private ArrayList<ClientThread> clients;
 	private boolean isStart;
 	private DefaultListModel listModel;
-	
+	private JTextArea contentArea;
 	
 	// 服务器线程的构造方法
-	public ServerThread(ServerSocket serverSocket, int max) {
+	public ServerThread(ServerSocket serverSocket, int max,JTextArea contentArea ) {
 		this.serverSocket = serverSocket;
 		this.max = max;
+		this.contentArea =contentArea;
 	}
 
 	public void run() {
@@ -55,8 +58,8 @@ public class ServerThread extends Thread {
 				client.start();// 开启对此客户端服务的线程
 				clients.add(client);
 				listModel.addElement(client.getUser().getName());// 更新在线列表
-				//contentArea.append(client.getUser().getName()
-						//+ client.getUser().getIp() + "上线!\r\n");
+			contentArea.append(client.getUser().getName()
+						+ client.getUser().getIp() + "上线!\r\n");
 			} catch (IOException e) {
 				e.printStackTrace();
 			}
