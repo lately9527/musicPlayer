@@ -157,7 +157,8 @@ public class Client{
 		frame.add(centerSplit, "Center");
 		frame.add(southPanel, "South");
 		frame.setSize(1000, 600);
-		ImageIcon icon=new ImageIcon("logo.png");
+		//ImageIcon icon=new ImageIcon("logo.png");
+		ImageIcon icon=new ImageIcon("emoji-20.png");
 		frame.setIconImage(icon.getImage());
 		int screen_width = Toolkit.getDefaultToolkit().getScreenSize().width;
 		int screen_height = Toolkit.getDefaultToolkit().getScreenSize().height;
@@ -343,8 +344,5 @@ public class Client{
 			isConnected = true;
 			return false;
 		}
-	}
-
-	// 不断接收消息的线程
-	
+	}	
 }
