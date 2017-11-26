@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<!-- struts配置的文件 -->
+<!DOCTYPE struts PUBLIC
+	"-//Apache Software Foundation//DTD Struts Configuration 2.3//EN"
+	"http://struts.apache.org/dtds/struts-2.3.dtd">
+
+<struts>
+	<package name="sshDemo" extends="struts-default" namespace="/">
+        <!-- struts创建action -->
+<!--         <action name="product_*" class="com.kevin.action.ProductAction" method="{1}"> -->
+		<!--spring创建action实例，class中为bean 的 id  -->
+		
+		<action name="product_*" class="productAction" method="{1}">
+        	<allowed-methods>*</allowed-methods> 
+        </action>
+    </package>
+   
+</struts>
